@@ -157,6 +157,7 @@ namespace JASON_Compiler
                 {
                     CurrentLexeme += SourceCode[j];
                     j++;
+                    bool commentTerminated = false;
                     while (j < SourceCode.Length)
                     {
                         if (SourceCode[j] == '*' && j + 1 < SourceCode.Length && SourceCode[j + 1] == '/')
@@ -164,15 +165,22 @@ namespace JASON_Compiler
                             CurrentLexeme += SourceCode[j];
                             CurrentLexeme += SourceCode[j + 1];
                             j += 2;
+                            commentTerminated = true;
                             break; 
                         }
                         CurrentLexeme += SourceCode[j];
                         j++;
                     }
 
-                    if (!CurrentLexeme.EndsWith("*/"))
+                    if (!commentTerminated) 
                     {
                         Errors.Error_List.Add("Unterminated comment");
+                    }
+                    else 
+                    {
+                        Tok.lex = CurrentLexeme;
+                        Tok.token_type = Token_Class.Comment;
+                        Tokens.Add(Tok);
                     }
                     
                     i = j - 1;

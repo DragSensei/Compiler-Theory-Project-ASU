@@ -102,7 +102,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 15);
             this.label1.TabIndex = 4;
-            this.label1.Text = "JASON Code";
+            this.label1.Text = "Tiny Programing language Code";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -138,8 +138,8 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Tiny Compiler";
+            this.Text = "Tiny Compiler";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
